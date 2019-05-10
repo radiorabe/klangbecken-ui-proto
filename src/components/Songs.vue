@@ -1,29 +1,29 @@
 <template>
   <div class="songs">
-    <v-layout>
-      <v-flex xs2 class="ml-5 mt-3">
-        <h1 class="display-1">Songs</h1>
-      </v-flex>
-      <v-flex xs6 class="mt-3">
-        <Search />
-      </v-flex>
-    </v-layout>
-    <v-container>
-        <v-layout>
-          <v-data-table
-            :headers="headers"
-            :items="desserts"
-            hide-actions
-            class="songs-list"
-          >
-            <template v-slot:items="props">
-              <td>{{ props.item.name }}</td>
-              <td class="text-xs-left">{{ props.item.calories }}</td>
-              <td class="text-xs-left">{{ props.item.fat }}</td>
-              <td class="text-xs-right">edit</td>
-            </template>
-          </v-data-table>
-        </v-layout>
+    <v-container class="songs-wrapper">
+      <v-layout>
+        <v-flex xs1 class="mb-3 mr-4">
+          <h1 class="display-1">Songs</h1>
+        </v-flex>
+        <v-flex xs8 class="mt-2 mb-3">
+          <Search :list="desserts"/>
+        </v-flex>
+      </v-layout>
+      <v-layout>
+        <v-data-table
+          :headers="headers"
+          :items="desserts"
+          hide-actions
+          class="songs-list"
+        >
+          <template v-slot:items="props">
+            <td>{{ props.item.name }}</td>
+            <td class="text-xs-left">{{ props.item.calories }}</td>
+            <td class="text-xs-left">{{ props.item.fat }}</td>
+            <td class="text-xs-right">edit</td>
+          </template>
+        </v-data-table>
+      </v-layout>
     </v-container>
   </div>
 </template>
@@ -42,15 +42,24 @@ import Search from '@/components/Search.vue'
           {
             text: 'Title',
             align: 'left',
+            value: 'name',
             sortable: false,
-            value: 'name'
           },
-          { text: 'Künstler', value: 'Künstler' },
-          { text: 'Dauer', value: 'Dauer' },
+          { 
+            text: 'Künstler', 
+            value: 'Künstler',
+            sortable: false, 
+          },
+          { 
+            text: 'Dauer', 
+            value: 'Dauer',
+            sortable: false, 
+          },
           { 
             text: 'Actions',
             align: 'right',
-            value: 'Actions' 
+            value: 'Actions',
+            sortable: false,
           }
         ],
         desserts: [
@@ -150,6 +159,10 @@ import Search from '@/components/Search.vue'
 
 .songs-list{
   width: 100%;
+}
+
+.songs-wrapper{
+  max-width: 1330px;
 }
 
 </style>

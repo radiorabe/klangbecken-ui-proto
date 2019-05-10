@@ -1,24 +1,44 @@
 <template>
 	<div class="warpper">
-		<v-text-field
-			v-model="test"
-			label="Last Name"
-			solo
-		></v-text-field>
-		{{test}}
+		<input 
+			type="text"
+			class="search"
+      v-model="search"
+      placeholder="Search..."
+		>
 	</div>
 </template>
 
 <script>
 export default {
-	name: "Search",
+  name: "Searctexth",
+  props: ['list'],
 	data() {
 		return {
-				test: '',
+      search: '',
+        
 		}
-	}
+  }, 
+  computed: {
+    filteredList() {
+      return this.list.filter(post => {
+        return post.title.toLowerCase().includes(this.search.toLowerCase())
+      })
+    }
+  }
 }
 </script>
+
+<style scoped>
+.search{
+  border-radius: 15px;
+  background: rgba(210, 210, 210, 0.11);
+  height: 30px;
+  width: 50%;
+  padding: 0 15px;
+}
+</style>
+
 
 
 
