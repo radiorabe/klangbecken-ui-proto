@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar class="player">
+  <v-toolbar class="player" height="80">
     <v-toolbar-side-icon @click="toggleDrawer"></v-toolbar-side-icon>
   </v-toolbar>
 </template>
@@ -25,6 +25,7 @@ export default {
   position: absolute;
   bottom: 0;
   z-index: 3;
+  background-color: rgba(0, 0, 0, 0.5)
 }
 </style>
 

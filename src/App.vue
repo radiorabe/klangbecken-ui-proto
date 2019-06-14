@@ -1,5 +1,5 @@
 <template>
-  <v-app dark>
+  <v-app class="back">
     <v-content>
       <Home/>
     </v-content>
@@ -25,3 +25,9 @@ export default {
   }
 }
 </script>
+<style scoped>
+.back{
+  background-image: url("./assets/background.png")
+}
+</style>
+

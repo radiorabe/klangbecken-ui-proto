@@ -1,27 +1,26 @@
 <template>
-    <v-navigation-drawer stateless app :value="drawer" class="nav">
-  
+  <v-navigation-drawer stateless app :value="drawer" class="nav">
     <v-layout align-space-between justify-center column>
       <v-flex>
-    <div class="logo text-xs-center mt-3">
-      <img src="@/assets/logo.svg" alt="RaBe Logo">
-    </div>
-    </v-flex>
-      <v-flex class="mt-5"> 
-        <v-list class="mt-5">
-          <v-list-tile 
-            v-for="row in navContent" 
+        <div class="logo text-xs-center mt-5">
+          <img src="@/assets/logo.svg" alt="RaBe Logo">
+        </div>
+      </v-flex>
+      <v-flex class="mt-1"> 
+        <v-list class="mt-1">
+          <div 
+            v-for="row in navContent"
             :key="row.name" 
-            class="mx-4 my-5"
           >
-            <v-list-tile-action>
-              <v-icon>{{ row.icon }}</v-icon>
-            </v-list-tile-action>
-
-            <v-list-tile-content>
-              <v-list-tile-title>{{ row.name }}</v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
+            <v-list-tile class="mx-4 my-5 bullet">
+              <v-list-tile-action>
+                <v-icon class="white--text">{{ row.icon }}</v-icon>
+              </v-list-tile-action>
+              <v-list-tile-content>
+                <v-list-tile-title class="white--text">{{ row.name }}</v-list-tile-title>
+              </v-list-tile-content>
+            </v-list-tile>
+          </div>
         </v-list>
       </v-flex>
     </v-layout>
@@ -34,9 +33,8 @@ export default {
   data () {
     return {
       navContent: [
-        { name: "Songs", icon: "music_note" },
-        { name: "Jingles", icon: "music_note" },
-        { name: "Playlist", icon: "music_note" },
+        { name: "Music", icon: "music_note" },
+        { name: "Jingles", icon: "notifications" }
       ],
     }
   },
@@ -52,4 +50,11 @@ export default {
 </script>
 
 <style scoped>
+.nav{
+}
+
+.bullet:hover{
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
 </style>

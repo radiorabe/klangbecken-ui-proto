@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <Songs />
-    <Navigation />
+    <Navigation style="background-color: transparent;"/>
   </div>
 </template>
 
